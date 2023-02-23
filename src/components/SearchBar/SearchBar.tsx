@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import PokemonList from 'components/PokemonList/PokemonList';
 
 const handleChange = (setSearchQuery, event) => {
   console.log(event);
@@ -9,24 +10,20 @@ const handleChange = (setSearchQuery, event) => {
 function SearchBar({ pokemonList }) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredPokemonList = pokemonList.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
-
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={(event) => handleChange(pokemonList, setSearchQuery, event)}
-      />
-      <ul>
-        {filteredPokemonList.map((pokemon) => (
-          <li key={pokemon.name}>{pokemon.name}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <section className="SearchBar">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={(event) => handleChange(setSearchQuery, event)}
+        />
+      </section>
+      <section>
+        <PokemonList pokemonList={pokemonList} searchQuery={searchQuery}></PokemonList>
+      </section>
+    </>
   );
 }
 
