@@ -36,7 +36,6 @@ a {
 body {
 	margin: 0;
 	display: flex;
-	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
 }
@@ -66,9 +65,7 @@ button {
 }
 #root {
 	max-width: 200px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+  padding: 2rem;
 	font-family: $font-family_1;
 	font-size: 16px;
 	line-height: 24px;

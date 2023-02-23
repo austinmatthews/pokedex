@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Pokemon from 'components/Pokemon/Pokemon';
+import listStyles from 'scss/PokemonList.module.scss';
 
 function PokemonList({ pokemonList, searchQuery }) {
   const filteredPokemonList = pokemonList.filter((item) =>
@@ -8,7 +9,7 @@ function PokemonList({ pokemonList, searchQuery }) {
 
   return (
     <>
-      <ul className="PokemonList">
+      <ul className={listStyles.ul}>
         {filteredPokemonList.map((pokemon) => (
           <Pokemon key={pokemon.name} pokemonName={pokemon.name}></Pokemon>
         ))}
